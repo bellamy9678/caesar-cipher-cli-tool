@@ -1,4 +1,4 @@
-import { MODE, ERROR_MESSAGES, DEFAULT_PARAMS } from './constants.js';
+import { MODE, ERROR_MESSAGES, DEFAULT_PARAMS } from '../constants.js';
 import commander, { program } from 'commander';
 
 export const options = () => {
@@ -17,9 +17,9 @@ export const options = () => {
   } catch (error) {
     let message = ERROR_MESSAGES.DEFAULT;
     switch (error.code) {
-      case 'commander.unknownOption': {message = ERROR_MESSAGES.OPTIONS; break;}
-      case 'commander.missingMandatoryOptionValue': {message = ERROR_MESSAGES.REQUIRED; break;}
-      case 'commander.invalidOptionArgument': {message = ERROR_MESSAGES.INVALID; break;}
+      case 'commander.unknownOption': { message = ERROR_MESSAGES.OPTIONS; break; }
+      case 'commander.missingMandatoryOptionValue': { message = ERROR_MESSAGES.REQUIRED; break; }
+      case 'commander.invalidOptionArgument': { message = ERROR_MESSAGES.INVALID; break; }
       default: message = ERROR_MESSAGES.DEFAULT;
     }
 
@@ -29,15 +29,3 @@ export const options = () => {
 
   return { ...DEFAULT_PARAMS, ...CLIsArguments };
 }
-console.log(options());
-  // if (mode !== MODE.DECODE && mode !== MODE.ENCODE) {
-  //   throw new Error(ERROR_MESSAGES.MODE);
-  // }
-
-  // if (isNaN(shift)) {
-  //   throw new Error(ERROR_MESSAGES.SHIFT);
-  // }
-
-  // if (typeof text === 'string' && text.length === 0) {
-  //   return `${ERROR_MESSAGES.TEXT} ${mode}`;
-  // }

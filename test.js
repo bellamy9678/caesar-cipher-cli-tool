@@ -1,6 +1,4 @@
 import { pipeline } from 'stream';
-import { default as minimist } from 'minimist';
-import { program } from 'commander';
 
 const input = process.stdin;
 program.exitOverride();
