@@ -1,7 +1,7 @@
-import { MODE, ERROR_MESSAGES, DEFAULT_PARAMS } from '../constants.js';
+import { ERROR_MESSAGES, DEFAULT_PARAMS } from '../constants.js';
 import commander, { program } from 'commander';
 
-export const options = () => {
+export const getOptions = () => {
   let CLIsArguments = {};
   program
     .requiredOption('-s, --shift <value>', 'This is shift')

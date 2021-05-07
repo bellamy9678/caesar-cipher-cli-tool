@@ -13,13 +13,9 @@ export const ERROR_MESSAGES = {
   INVALID: 'Invalid parameter was chosen\n',
 };
 
-// export const IO_TYPE = {
-//   FILE = 'file',
-//   CONSOLE = 'console',
-// }
-
 export const DEFAULT_PARAMS = {
   input: null,
   output: null,
   shift: null,
+  action: null,
 }

@@ -15,8 +15,7 @@ const convert = ({ letter, shift, cryptoModeFlag }) => {
   );
 };
 
-export const coder = ({ mode, shift, text }) => {
-  const cryptoModeFlag = mode === MODE.ENCODE ? 1 : -1;
-
+export const coder = ({ action, shift, text }) => {
+  const cryptoModeFlag = action === MODE.ENCODE ? 1 : -1;
   return Array.prototype.map.call(text, letter => ABC.has(letter) ? convert({ letter, shift, cryptoModeFlag }) : letter).join('');
 }

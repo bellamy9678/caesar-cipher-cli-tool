@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
-export const outputStream = ({ outputSource }) => {
-  return outputSource
-    ? fs.createWriteStream(outputSource)
-    : process.stdout;
+export const inputStream = ({ input }) => {
+  return input
+    ? fs.createReadStream(input)
+    : process.stdin;
 }
