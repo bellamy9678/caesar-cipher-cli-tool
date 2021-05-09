@@ -1,5 +1,6 @@
 import { ERROR_MESSAGES, DEFAULT_PARAMS } from '../constants.js';
 import commander, { program } from 'commander';
+import { checkIsFile } from './checkIsFile.js';
 
 export const getOptions = () => {
   let CLIsArguments = {};
@@ -10,16 +11,18 @@ export const getOptions = () => {
     .option('-o, --output <value>', 'This is output')
     .exitOverride()
     .allowExcessArguments();
-
+  
   try {
     program.parse(process.argv);
     CLIsArguments = program.opts();
+    checkIsFile([ CLIsArguments.input, CLIsArguments.output ]);
   } catch (error) {
     let message = ERROR_MESSAGES.DEFAULT;
     switch (error.code) {
       case 'commander.unknownOption': { message = ERROR_MESSAGES.OPTIONS; break; }
       case 'commander.missingMandatoryOptionValue': { message = ERROR_MESSAGES.REQUIRED; break; }
       case 'commander.invalidOptionArgument': { message = ERROR_MESSAGES.INVALID; break; }
+      case 'commander.optionMissingArgument': { message = ERROR_MESSAGES.MISSING_PARAMETER; break; }
       default: message = ERROR_MESSAGES.DEFAULT;
     }
 
