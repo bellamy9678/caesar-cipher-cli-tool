@@ -7,7 +7,8 @@ const CODE_A = ABC_CAPITAL.charCodeAt(0);
 const CODE_a = ABC_SMALL.charCodeAt(0);
 
 const convert = ({ letter, shift, cryptoModeFlag }) => {
-  const realShift = shift >= 0 ? shift % ABC_CAPITAL.length : (ABC_CAPITAL.length + shift) % ABC_CAPITAL.length;
+  const realShift = parseInt(shift) >= 0 ? shift % ABC_CAPITAL.length : (ABC_CAPITAL.length + parseInt(shift)) % ABC_CAPITAL.length;
+  console.log(realShift)
   const code = letter.charCodeAt(0);
   const capitalLetterFlag = code >= CODE_a ? CODE_a : CODE_A;
   return String.fromCharCode(
